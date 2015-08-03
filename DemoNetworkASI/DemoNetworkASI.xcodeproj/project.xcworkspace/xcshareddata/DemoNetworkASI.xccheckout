@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>835A2B5F-B687-4213-A74E-6FCB5E858FD3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DemoNetworkASI</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A60353B77F55AB4846B6FE4472D31D9813699B1A</key>
+		<string>https://github.com/potato512/NetworkASIRequest.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DemoNetworkASI/DemoNetworkASI.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A60353B77F55AB4846B6FE4472D31D9813699B1A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/potato512/NetworkASIRequest.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A60353B77F55AB4846B6FE4472D31D9813699B1A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A60353B77F55AB4846B6FE4472D31D9813699B1A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NetworkASIRequest</string>
+		</dict>
+	</array>
+</dict>
+</plist>
