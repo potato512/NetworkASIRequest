@@ -17,7 +17,7 @@ ASI网络请求
 
 ~~~ javascript
 // 网络请求开始
-NSString *url = @"http://192.168.16.240:9009/Product/GetAdvertisementInfo";
+NSString *url = @"";
 [[ASIRequestHelper shareRequest] sendRequest:url parameter:nil requestType:ASIRequestPOST target:self didFinished:^(id obj) {
 NSLog(@"request success obj %@", obj);
 } didFailed:^(NSError *error) {
