@@ -15,6 +15,9 @@
  * 3 设置Search Path
   * 设置方法：项目名称-TARGETS-项目-Build Settings-Search Paths-Header Search Paths（${SDK_DIR}/usr/include/libxml2）
 
+#效果图
+![asirequest.gif](./asirequest.gif)
+
 ##使用说明
 
 ~~~ javascript
@@ -44,6 +47,6 @@
 
 ~~~
 
-#效果图
-![asirequest.gif](./asirequest.gif)
+#注意事项
+![MARARC-ASI.png](./MARARC-ASI.png)
 
