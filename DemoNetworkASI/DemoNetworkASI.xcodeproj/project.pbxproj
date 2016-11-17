@@ -29,7 +29,7 @@
 		A7DBC25C1B6F3D5200E3F667 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DBC2491B6F3D5200E3F667 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A7DBC25D1B6F3D5200E3F667 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DBC24B1B6F3D5200E3F667 /* SBJsonStreamWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A7DBC25E1B6F3D5200E3F667 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DBC24D1B6F3D5200E3F667 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		A7DBC2611B6F3FF300E3F667 /* ASIRequestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DBC2601B6F3FF300E3F667 /* ASIRequestHelper.m */; };
+		A7DBC2611B6F3FF300E3F667 /* SYASIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A7DBC2601B6F3FF300E3F667 /* SYASIRequest.m */; };
 		A7DBC2631B6F408300E3F667 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DBC2621B6F408300E3F667 /* libxml2.dylib */; };
 		A7DBC2651B6F408C00E3F667 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DBC2641B6F408C00E3F667 /* CFNetwork.framework */; };
 		A7DBC2671B6F409400E3F667 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DBC2661B6F409400E3F667 /* CoreGraphics.framework */; };
@@ -98,8 +98,8 @@
 		A7DBC24C1B6F3D5200E3F667 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		A7DBC24D1B6F3D5200E3F667 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		A7DBC24E1B6F3D5200E3F667 /* SBProxyForJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBProxyForJson.h; sourceTree = "<group>"; };
-		A7DBC25F1B6F3FF300E3F667 /* ASIRequestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIRequestHelper.h; sourceTree = "<group>"; };
-		A7DBC2601B6F3FF300E3F667 /* ASIRequestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIRequestHelper.m; sourceTree = "<group>"; };
+		A7DBC25F1B6F3FF300E3F667 /* SYASIRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYASIRequest.h; sourceTree = "<group>"; };
+		A7DBC2601B6F3FF300E3F667 /* SYASIRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYASIRequest.m; sourceTree = "<group>"; };
 		A7DBC2621B6F408300E3F667 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		A7DBC2641B6F408C00E3F667 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		A7DBC2661B6F409400E3F667 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -201,8 +201,8 @@
 		A7DBC2251B6F3D5200E3F667 /* ASIRequestHelper */ = {
 			isa = PBXGroup;
 			children = (
-				A7DBC25F1B6F3FF300E3F667 /* ASIRequestHelper.h */,
-				A7DBC2601B6F3FF300E3F667 /* ASIRequestHelper.m */,
+				A7DBC25F1B6F3FF300E3F667 /* SYASIRequest.h */,
+				A7DBC2601B6F3FF300E3F667 /* SYASIRequest.m */,
 				A7DBC2261B6F3D5200E3F667 /* ASIHttpRequst */,
 				A7DBC2401B6F3D5200E3F667 /* SBJSON */,
 			);
@@ -373,7 +373,7 @@
 				A7DBC2081B6F3C5C00E3F667 /* ViewController.m in Sources */,
 				A7DBC2541B6F3D5200E3F667 /* ASIHTTPRequest.m in Sources */,
 				A7DBC24F1B6F3D5200E3F667 /* ASIAuthenticationDialog.m in Sources */,
-				A7DBC2611B6F3FF300E3F667 /* ASIRequestHelper.m in Sources */,
+				A7DBC2611B6F3FF300E3F667 /* SYASIRequest.m in Sources */,
 				A7DBC2591B6F3D5200E3F667 /* NSObject+SBJSON.m in Sources */,
 				A7DBC25E1B6F3D5200E3F667 /* SBJsonWriter.m in Sources */,
 				A7DBC2531B6F3D5200E3F667 /* ASIFormDataRequest.m in Sources */,
@@ -592,6 +592,7 @@
 				A7DBC2211B6F3C5C00E3F667 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A7DBC2221B6F3C5C00E3F667 /* Build configuration list for PBXNativeTarget "DemoNetworkASITests" */ = {
 			isa = XCConfigurationList;
@@ -600,6 +601,7 @@
 				A7DBC2241B6F3C5C00E3F667 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

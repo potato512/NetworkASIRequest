@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 ygsoft. All rights reserved.
 //
 
-#import "ASIRequestHelper.h"
+#import "SYASIRequest.h"
 
 /****************************************************************/
 
@@ -20,17 +20,17 @@
 
 /****************************************************************/
 
-@interface ASIRequestHelper ()
+@interface SYASIRequest ()
 
 @property (nonatomic, strong) NSMutableArray *requestArray;
 
 @end
 
-@implementation ASIRequestHelper
+@implementation SYASIRequest
 
-+ (ASIRequestHelper *)shareRequest
++ (SYASIRequest *)shareRequest
 {
-    static ASIRequestHelper *staticRequestManager;
+    static SYASIRequest *staticRequestManager;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{

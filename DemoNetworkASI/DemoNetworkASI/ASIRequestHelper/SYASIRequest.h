@@ -15,8 +15,10 @@
 // 文件信息
 @interface FileModal : NSObject
 
-@property (nonatomic, strong) NSString *fileName; // 文件名称
-@property (nonatomic, strong) NSString *filePath; // 文件路径
+/// 文件名称
+@property (nonatomic, strong) NSString *fileName;
+/// 文件路径
+@property (nonatomic, strong) NSString *filePath;
 
 @end
 
@@ -33,18 +35,18 @@ typedef enum
     
 }ASIRequestType;
 
-@interface ASIRequestHelper : NSObject
+@interface SYASIRequest : NSObject
 
 /// 单例
-+ (ASIRequestHelper *)shareRequest;
++ (SYASIRequest *)shareRequest;
 
-/// 发送请求（开始，成功，失败）
+/// 发送请求（没有参数时为GET，有参数时为POST；开始，成功，失败的block回调）
 - (ASIFormDataRequest *)sendRequest:(NSString *)urlString
                           parameter:(NSDictionary *)parameter
                              target:(id)targer
                         didFinished:(void (^)(id obj))finishedBlock
                           didFailed:(void (^)(NSError *error))failedBlock;
-/// 发送请求，自定义请求方式
+/// 发送请求（自定义请求方式；开始，成功，失败的block回调）
 - (ASIFormDataRequest *)sendRequest:(NSString *)urlString
                           parameter:(NSDictionary *)parameter
                         requestType:(ASIRequestType)type

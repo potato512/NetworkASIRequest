@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "ASIRequestHelper.h"
+#import "SYASIRequest.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) UILabel *label;
 
 @end
 
@@ -21,8 +23,17 @@
     
     self.title = @"ASI";
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"RequestCancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancelbuttonClick:)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Request" style:UIBarButtonItemStyleDone target:self action:@selector(buttonClick:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"clear" style:UIBarButtonItemStyleDone target:self action:@selector(clearClick:)];
+    UIBarButtonItem *cacel = [[UIBarButtonItem alloc] initWithTitle:@"cancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancelClick:)];
+    UIBarButtonItem *request = [[UIBarButtonItem alloc] initWithTitle:@"Request" style:UIBarButtonItemStyleDone target:self action:@selector(requestClick:)];
+    self.navigationItem.rightBarButtonItems = @[request, cacel];
+    
+    self.label = [[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, (CGRectGetWidth(self.view.bounds) - 10.0 * 2), (CGRectGetHeight(self.view.bounds) - 10.0 * 2))];
+    [self.view addSubview:self.label];
+    self.label.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    self.label.numberOfLines = 0;
+    self.label.backgroundColor = [UIColor lightGrayColor];
+    self.label.textColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,18 +41,46 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)cancelbuttonClick:(UIBarButtonItem *)button
+- (void)loadView
 {
-    [[ASIRequestHelper shareRequest] cancelASIRequest:self];
+    [super loadView];
+    self.view.backgroundColor = [UIColor whiteColor];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+    {
+        [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    }
 }
 
-- (void)buttonClick:(UIBarButtonItem *)button
+- (void)clearClick:(UIBarButtonItem *)button
 {
-    NSString *url = @"";
-    [[ASIRequestHelper shareRequest] sendRequest:url parameter:nil requestType:ASIRequestPOST target:self didFinished:^(id obj) {
-        NSLog(@"request success obj %@", obj);
+    self.label.text = @"";
+}
+
+- (void)cancelClick:(UIBarButtonItem *)button
+{
+    // 取消网络请求
+    [[SYASIRequest shareRequest] cancelASIRequest:self];
+}
+
+- (void)requestClick:(UIBarButtonItem *)button
+{
+    NSString *url = @"http://ditu.amap.com/service/regeo?longitude=121.04925573429551&latitude=31.315590522490712";
+    
+    // 网络请求
+    // 1 没有parameter时自适配为GET请求
+    [[SYASIRequest shareRequest] sendRequest:url parameter:nil target:self didFinished:^(id obj) {
+        NSString *text = [obj JSONRepresentation];
+        self.label.text = text;
     } didFailed:^(NSError *error) {
-        NSLog(@"request fail");
+        self.label.text = [NSString stringWithFormat:@"error = %@", error];
+    }];
+    
+    // 或2 用户配置GET，或POST请求
+    [[SYASIRequest shareRequest] sendRequest:url parameter:nil requestType:ASIRequestGET target:self didFinished:^(id obj) {
+        NSString *text = [obj JSONRepresentation];
+        self.label.text = text;
+    } didFailed:^(NSError *error) {
+        self.label.text = [NSString stringWithFormat:@"error = %@", error];
     }];
 }
 
